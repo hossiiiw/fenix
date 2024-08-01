@@ -27,25 +27,12 @@ const sliderCircle = document.querySelectorAll(".circle");
 // scroll btn
 let topBtn = document.querySelector(".f-button");
 
-window.addEventListener("resize", function () {
-  "use strict";
-  window.location.reload();
-}); //reload page
 if (width < 1465) {
   productCard.style.display = "none";
   // resProductCard.style.display = "flex";
 }
 
 //hamburger menu
-if (width < 976) {
-  hamburgerBtn.style.display = "block";
-  leftNavbarItems.style.display = "none";
-  rightNavbarItems.style.display = "none";
-} else {
-  hamburgerBtn.style.display = "none";
-  leftNavbarItems.style.display = "block";
-  rightNavbarItems.style.display = "block";
-}
 
 hamburgerBtn.addEventListener("click", () => {
   if (!hamburgerMenuFlag) {
