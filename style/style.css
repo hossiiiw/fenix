@@ -47,19 +47,43 @@ ul {
     min-width: 1400px;
     max-width: 1599px;
     font-size: 20px;
+    .hamburger_btn {
+      display: none;
+    }
   }
   @media (min-width: 1200px) and (max-width: 1399px) {
     min-width: 1200px;
     max-width: 1399px;
+    .hamburger_btn {
+      display: none;
+    }
   }
   @media (min-width: 992px) and (max-width: 1199px) {
     min-width: 992px;
     max-width: 1199px;
+    .hamburger_btn {
+      display: block;
+    }
+    .nav-right-option {
+      display: none;
+    }
+    .nav-left-option {
+      display: none;
+    }
   }
   @media (min-width: 768px) and (max-width: 991px) {
     min-width: 768px;
     max-width: 991px;
     font-size: 14px;
+    .hamburger_btn {
+      display: block;
+    }
+    .nav-right-option {
+      display: none;
+    }
+    .nav-left-option {
+      display: none;
+    }
     .text-container {
       width: 50%;
       font-size: clamp(8px, 10px, 12px);
@@ -69,6 +93,15 @@ ul {
   @media (min-width: 501px) and (max-width: 767px) {
     min-width: 501px;
     max-width: 767px;
+    .hamburger_btn {
+      display: block;
+    }
+    .nav-right-option {
+      display: none;
+    }
+    .nav-left-option {
+      display: none;
+    }
     font-size: clamp(8px, 10px, 12px);
     .header-color-box {
       margin: 0;
@@ -82,6 +115,15 @@ ul {
   @media (min-width: 0px) and (max-width: 666px) {
     min-width: 0px;
     max-width: 666px;
+    .hamburger_btn {
+      display: block;
+    }
+    .nav-right-option {
+      display: none;
+    }
+    .nav-left-option {
+      display: none;
+    }
     .text-container {
       width: 50%;
       text-align: center;
@@ -140,6 +182,7 @@ ul {
 
 .hamburger_btn {
   position: absolute;
+  display: none;
   width: 50px;
   height: 50px;
   right: 25px;
