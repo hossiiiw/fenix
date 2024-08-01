@@ -1,3 +1,13 @@
+//NAVBAR
+const width = window.innerWidth;
+const leftNavbarItems = document.querySelector(".nav-left-option");
+const rightNavbarItems = document.querySelector(".nav-right-option");
+const hamburgerBtn = document.querySelector(".hamburger_btn");
+const hamburgerMenu = document.querySelector(".hamburger_menu");
+const hamburgerMenuItems = document.querySelector(".ham_ul");
+const navbarLinks = document.querySelectorAll(".nav-link");
+let hamburgerMenuFlag = false;
+
 //list of sliders image
 const headerImage = document.querySelector(".header");
 const headerColorBox = document.querySelector(".color-blank");
@@ -6,6 +16,9 @@ const nextBtn = document.querySelector(".right-btn");
 const preBtn = document.querySelector(".left-btn");
 let indexHeaderImage = 1;
 
+//product items
+const productCard = document.querySelector(".product-items");
+
 //third page change background
 let indexThirdPageChange = 1;
 const thirdPageBackground = document.querySelector(".third-page");
@@ -13,6 +26,44 @@ const sliderCircle = document.querySelectorAll(".circle");
 
 // scroll btn
 let topBtn = document.querySelector(".f-button");
+
+window.addEventListener("resize", function () {
+  "use strict";
+  window.location.reload();
+}); //reload page
+if (width < 1465) {
+  productCard.style.display = "none";
+  // resProductCard.style.display = "flex";
+}
+
+//hamburger menu
+if (width < 976) {
+  hamburgerBtn.style.display = "block";
+  leftNavbarItems.style.display = "none";
+  rightNavbarItems.style.display = "none";
+} else {
+  hamburgerBtn.style.display = "none";
+  leftNavbarItems.style.display = "block";
+  rightNavbarItems.style.display = "block";
+}
+
+hamburgerBtn.addEventListener("click", () => {
+  if (!hamburgerMenuFlag) {
+    hamburgerBtn.src = "./assets/navbar/multiply1.png";
+    hamburgerMenuFlag = true;
+    hamburgerMenu.style.padding = "25px";
+    hamburgerMenu.style.width = "150px";
+    hamburgerMenuItems.style.display = "flex";
+  } else {
+    hamburgerBtn.src = "./assets/navbar/menu.png";
+    hamburgerMenuFlag = false;
+    hamburgerMenu.style.width = "0%";
+    hamburgerMenu.style.padding = "0px";
+    hamburgerMenuItems.style.display = "none";
+  }
+  console.log("object");
+});
+
 //next header image btn
 const headerSliderImageNext = () => {
   const sliderImage = [
@@ -83,6 +134,18 @@ const headerSliderImagePrev = () => {
 };
 preBtn.addEventListener("click", headerSliderImagePrev);
 
+const swiper = new Swiper(".swiper", {
+  loop: true,
+  slidesPerView: 6,
+  // If we need pagination
+
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
 //third page background change
 
 const thirdPageBackGroundChange = () => {
@@ -124,15 +187,3 @@ function topFunction() {
 }
 
 topBtn.addEventListener("click", topFunction);
-
-const swiper = new Swiper(".swiper", {
-  loop: true,
-  slidesPerView: 6,
-  // If we need pagination
-
-  // Navigation arrows
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
